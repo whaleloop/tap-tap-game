@@ -2,15 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+
+	private int levelVal = 1;
+	private Text levelText;
+
 	public CharacterManager ninja;
+	public int level { 
+		get { 
+			return levelVal; 
+		} 
+	}
 
 	void OnEnable ()
 	{
 		ninja = GameObject.Find("Ninja").GetComponent<CharacterManager> ();
+		levelText = GameObject.Find ("LevelText").GetComponent<Text> ();
 	}
 	
 	public void OnTouchAreaTouched ()
@@ -36,5 +46,11 @@ public class GameManager : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	public void UpdateLevel ()
+	{
+		levelVal++;
+		levelText.text = level.ToString ();
 	}
 }

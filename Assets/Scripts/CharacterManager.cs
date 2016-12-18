@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour {
 
-	private int strength = 1;
+	public int strength = 1;
 	private EnemyManager enemy;
-	private int coins = 0;
+	public int coins = 0;
 
 	void OnEnable ()
 	{
@@ -22,6 +22,5 @@ public class CharacterManager : MonoBehaviour {
 	public void AddCoins (int value)
 	{
 		coins += value;
-		Debug.Log ("Current amount of coins: " + coins.ToString ());
 	}
 }
